@@ -112,7 +112,14 @@
     sh:name "Shape maintainer - foaf:Agent"@de ;
     sh:description "Prüfe, ob der dcatde:maintainer auf einen foaf:Agent verweist."@de ;
     sh:path dcatde:maintainer ;
-    sh:class foaf:Agent ;
+		sh:or(
+		[
+			sh:class foaf:Agent ;
+		]
+		[
+			sh:class foaf:Organization ;
+		]
+		) ;
     sh:severity sh:Violation ;
     sh:message "Pflicht: dcatde:maintainer ist kein foaf:Agent! Sollten Sie z.B. foaf:Person nutzen, deklarieren Sie den Knoten bitte noch explizit als foaf:Agent, da Shacl keine Klassenvererbungen beherrscht."@de .
 
